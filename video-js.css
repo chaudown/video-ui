@@ -46,7 +46,7 @@ body.vjs-full-window {
 
 /* Poster Styles */
 .vjs-poster {
-  margin: 0 auto; padding: 0; cursor: normal;
+  margin: 0 auto; padding: 0; cursor: pointer;
 
   /* Scale with the size of the player div. Works when poster is vertically shorter, but stretches when it's less wide. */
   position: relative; width: 100%; max-height: 100%; 
@@ -70,11 +70,11 @@ body.vjs-full-window {
   visibility: hidden !important;
   opacity: 0 !important;
 
-  -webkit-transition:   visibility 0s linear 25.3s, opacity 25.25s linear;
-  -moz-transition:      visibility 0s linear 25.3s, opacity 25.25s linear;
-  -ms-transition:       visibility 0s linear 25.3s, opacity 25.25s linear;
-  -o-transition:        visibility 0s linear 25.3s, opacity 25.25s linear;
-  transition:           visibility 0s linear 25.3s, opacity 25.25s linear;
+  -webkit-transition:   visibility 0s linear 0.3s, opacity 0.25s linear;
+  -moz-transition:      visibility 0s linear 0.3s, opacity 0.25s linear;
+  -ms-transition:       visibility 0s linear 0.3s, opacity 0.25s linear;
+  -o-transition:        visibility 0s linear 0.3s, opacity 0.25s linear;
+  transition:           visibility 0s linear 0.3s, opacity 0.25s linear;
 }
 
 /* DEFAULT SKIN (override in another file to create new skins)
@@ -89,12 +89,11 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   left: 0; right: 0; /* 100% width of div */
   margin: 12px; padding: 0; /* Controls are absolutely position, so no padding necessary */
   height: 32px; /* Including any margin you want above or below control items */
-  color: #fff; border-top: 1px solid #404040;
    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 
   /* CSS Gradient */
   /* Can use the Ultimate CSS Gradient Generator: http://www.colorzilla.com/gradient-editor/ */
-  background: #000; /* Old browsers */
+  background: rgba(0,0,0,0.75); /* Old browsers */
  
   /* Start hidden and with 0 opacity. Opacity is used to fade in modern browsers. */
   /* Can't use display block to hide initially because widths of slider handles aren't calculated and avaialbe for positioning correctly. */
@@ -119,10 +118,16 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 /* Play/Pause
 -------------------------------------------------------------------------------- */
-.vjs-default-skin .vjs-play-control { width: 5em; cursor: pointer !important; }
+.vjs-default-skin .vjs-play-control { width: 48px; height:32px; cursor: pointer !important; margin-left:0px;  background:url('_img/video-texture-button.png');background-position:right; background-repeat:no-repeat;}
+
+.vjs-default-skin .vjs-play-control:hover{
+  background:rgba(255,0,0,0.8); 
+  -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px 0px 0px 5px;
+}
 /* Play Icon */
-.vjs-default-skin.vjs-paused .vjs-play-control div { width: 15px; height: 17px; background: url('video-js.png'); margin: 0.5em auto 0; }
-.vjs-default-skin.vjs-playing .vjs-play-control div { width: 15px; height: 17px; background: url('video-js.png') -25px 0; margin: 0.5em auto 0; }
+.vjs-default-skin.vjs-paused .vjs-play-control div {  width: 10px; height: 9px; background: url('_img/play-icon.png');  background-repeat:no-repeat; position:absolute; top:50%; left:50%; margin-left:-5px; margin-top:-5px;}
+
+.vjs-default-skin.vjs-playing .vjs-play-control div { width: 10px; height: 9px; background: url('_img/pause-icon.png');  background-repeat:no-repeat; position:absolute; top:50%; left:50%; margin-left:-5px; margin-top:-5px; }
 
 /* Rewind
 -------------------------------------------------------------------------------- */
@@ -131,68 +136,56 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
-.vjs-default-skin .vjs-mute-control { width: 3.8em; cursor: pointer !important; float: right; }
-.vjs-default-skin .vjs-mute-control div { width: 22px; height: 16px; background: url('video-js.png') -75px -25px; margin: 0.5em auto 0; }
-.vjs-default-skin .vjs-mute-control.vjs-vol-0 div { background: url('video-js.png') 0 -25px; }
-.vjs-default-skin .vjs-mute-control.vjs-vol-1 div { background: url('video-js.png') -25px -25px; }
-.vjs-default-skin .vjs-mute-control.vjs-vol-2 div { background: url('video-js.png') -50px -25px; }
+.vjs-default-skin .vjs-mute-control { width: 15px; cursor: pointer !important; float: right; }
+.vjs-default-skin .vjs-mute-control div { width: 12px; height: 9px; background: url('_img/video-icon-volume-3.png'); background-repeat:no-repeat; margin-top:11px; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-0 div { background: url('_img/video-icon-volume-0.png'); background-repeat:no-repeat; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-1 div { background: url('_img/video-icon-volume-1.png'); background-repeat:no-repeat; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-2 div { background: url('_img/video-icon-volume-2.png'); background-repeat:no-repeat; }
 
 
-.vjs-default-skin .vjs-volume-control { width: 5em; float: right; }
+.vjs-default-skin .vjs-volume-control { width: 72px; float: right; }
 .vjs-default-skin .vjs-volume-bar {
-  position: relative; width: 5em; height: 0.6em; margin: 1em auto 0; cursor: pointer !important;
+  position: relative; width: 55px; height: 5px; margin-left:5px; margin-top:12px; cursor: pointer !important;
 
-  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+  
 
-  background: #666;
-  background: -moz-linear-gradient(top, #333, #666);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#666));
-  background: -webkit-linear-gradient(top, #333, #666);
-  background: -o-linear-gradient(top, #333, #666);
-  background: -ms-linear-gradient(top, #333, #666);
-  background: linear-gradient(top, #333, #666);
+  background: url('_img/video-texture-volume.png');
 }
 .vjs-default-skin .vjs-volume-level {
-  position: absolute; top: 0; left: 0; height: 0.6em;
+  position: absolute; top: 0; left: 0; height: 5px;
 
-  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+  
 
   background: #fff;
-  background: -moz-linear-gradient(top, #fff, #ccc);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ccc));
-  background: -webkit-linear-gradient(top, #fff, #ccc);
-  background: -o-linear-gradient(top, #fff, #ccc);
-  background: -ms-linear-gradient(top, #fff, #ccc);
-  background: linear-gradient(top, #fff, #ccc);
 }
 .vjs-default-skin .vjs-volume-handle {
   position: absolute; top: -0.2em; width: 0.8em; height: 0.8em; background: #ccc; left: 0;
   border: 1px solid #fff;
-  -moz-border-radius: 0.6em; -webkit-border-radius: 0.6em; border-radius: 0.6em;
+  
+  display:none;
 }
 
 /* Progress
 -------------------------------------------------------------------------------- */
 .vjs-default-skin div.vjs-progress-control {
   position: absolute;
-  left: 4.8em; right: 4.8em; /* Leave room for time displays. */
-  height: 4px; width: auto;
-  top: 0em; /* Set above the rest of the controls. And leave room for 2px of borders (progress bottom and controls top). */
-  
+  left: 144px; right: 144px; /* Leave room for time displays. */
+  height: 5px; width: auto;
+  top: 12px; /* Set above the rest of the controls. And leave room for 2px of borders (progress bottom and controls top). */ 
 }
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
 .vjs-default-skin .vjs-progress-holder {
   position: relative; cursor: pointer !important; /*overflow: hidden;*/
   padding: 0; margin: 0; /* Placement within the progress control item */
-  height: 4px;
+  height: 5px;
 
+  background:url(_img/video-texture-volume.png);
 }
 .vjs-default-skin .vjs-progress-holder .vjs-play-progress,
 .vjs-default-skin .vjs-progress-holder .vjs-load-progress { /* Progress Bars */
-  position: absolute; display: block; height: 4px; margin: 0; padding: 0;
+  position: absolute; display: block; height: 5px; margin: 0; padding: 0;
   left: 0; top: 0; /*Needed for IE6*/
-
   /*width: 0;*/
 }
 
@@ -220,6 +213,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   top: 10px;
   text-align:center;
   font-size: 1em; line-height: 1.0em; font-weight: normal; font-family: Helvetica, Arial, sans-serif;
+  color:#fff;
 
 
   /* 1px top shadow */
@@ -228,7 +222,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 .vjs-default-skin .vjs-current-time { left: 60px; }
 
-.vjs-default-skin .vjs-duration { left: 102px;  }
+.vjs-default-skin .vjs-duration { left: 102px; ;}
 .vjs-default-skin .vjs-remaining-time { right: 0; display: none;}
 
 .vjs-time-divider { display:none; }
@@ -240,8 +234,11 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 -------------------------------------------------------------------------------- */
 .vjs-secondary-controls { float: right; }
 
-.vjs-default-skin .vjs-fullscreen-control { width: 3.8em; cursor: pointer !important; float: right; }
-.vjs-default-skin .vjs-fullscreen-control div { width: 16px; height: 16px; background: url('video-js.png') -50px 0; margin: 0.5em auto 0; }
+.vjs-default-skin .vjs-fullscreen-control { width: 48px; height:32px; cursor: pointer !important; float: right; -webkit-border-radius: 5px; -moz-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px; margin-right:-1px; background:url('_img/video-texture-button.png');background-position:left; background-repeat:no-repeat;}
+.vjs-default-skin .vjs-fullscreen-control:hover{
+  background:rgba(255,0,0,1);
+}
+.vjs-default-skin .vjs-fullscreen-control div { width: 11px; height: 11px; background: url('_img/fullscreen-icon.png'); background-repeat:none;position:absolute; top:50%; left:50%; margin-left:-6px; margin-top:-6px; }
 
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control div { background: url('video-js.png') -75px 0; }
 
@@ -250,9 +247,9 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 ---------------------------------------------------------*/
 .vjs-default-skin .vjs-big-play-button {
   display: block; /* Start hidden */ z-index: 2;
-  position: absolute; bottom: 12px; left: 12px; width: 48px; height: 32px; text-align: center; vertical-align: center; cursor: pointer !important;
+  position: absolute; bottom: 12px; left: 12px; width: 44px; height: 28px; text-align: center; vertical-align: center; cursor: pointer !important;
   border: 2px solid #fff; opacity: 0.95;
-  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;outline:none;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; outline:none;
 
 /*  background: #454545;
   background: -moz-linear-gradient(top, #454545 0%, #232323 50%, #161616 50%, #3f3f3f 100%);
