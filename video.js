@@ -1330,7 +1330,7 @@ _V_.LoadProgressBar = _V_.Component.extend({
   },
 
   update: function(){
-    if (this.el.style) { this.el.style.width = _V_.round(this.player.bufferedPercent() * 100, 2) + "%"; }
+    if (this.el.style) { this.el.style.width = _V_.round(this.player.bufferedPercent() * 100.8, 2) + "%"; }
   }
 
 });

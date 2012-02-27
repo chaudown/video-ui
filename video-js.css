@@ -87,20 +87,27 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   position: absolute;
   bottom: 0; /* Distance from the bottom of the box/video. Keep 0. Use height to add more bottom margin. */
   left: 0; right: 0; /* 100% width of div */
-  margin: 12px; padding: 0; /* Controls are absolutely position, so no padding necessary */
+  margin: 10px; padding: 0; /* Controls are absolutely position, so no padding necessary */
   height: 32px; /* Including any margin you want above or below control items */
    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 
   /* CSS Gradient */
   /* Can use the Ultimate CSS Gradient Generator: http://www.colorzilla.com/gradient-editor/ */
-  background: rgba(0,0,0,0.75); /* Old browsers */
+  border:2px solid white;
  
   /* Start hidden and with 0 opacity. Opacity is used to fade in modern browsers. */
   /* Can't use display block to hide initially because widths of slider handles aren't calculated and avaialbe for positioning correctly. */
   visibility: hidden;
   opacity: 0;
+  background:(0,0,0,0);
 }
-
+.vjs-default-skin .vjs-controls:hover{
+  -webkit-transition:background-color 0.5s linear;
+  background:rgba(0,0,0,1);
+  border:none;
+  margin:12px;
+  height:32px;
+} 
 /* General styles for individual controls. */
 .vjs-default-skin .vjs-control {
   position: relative; float: left;
@@ -121,8 +128,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin .vjs-play-control { width: 48px; height:32px; cursor: pointer !important; margin-left:0px;  background:url('_img/video-texture-button.png');background-position:right; background-repeat:no-repeat;}
 
 .vjs-default-skin .vjs-play-control:hover{
-  background:rgba(255,0,0,0.8); 
-  -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px 0px 0px 5px;
+  background:rgba(255,0,0,1); 
+  -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px 0px 0px 3px;
 }
 /* Play Icon */
 .vjs-default-skin.vjs-paused .vjs-play-control div {  width: 10px; height: 9px; background: url('_img/play-icon.png');  background-repeat:no-repeat; position:absolute; top:50%; left:50%; margin-left:-5px; margin-top:-5px;}
@@ -194,14 +201,15 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   background: #fff; /* Old browsers */
 }
 .vjs-default-skin .vjs-load-progress {
-  background:#636363;
+  background: url('_img/video-texture-load-progress.png');
 }
 
 .vjs-default-skin div.vjs-seek-handle {
   position: absolute;
-  width: 16px; height: 16px; /* Match img pixles */
-  margin-top: -0.3em;
+  width: 5px; height: 5px; /* Match img pixles */
+  margin-top: 0px;
   left: 0; top: 0; /*Needed for IE6*/
+  background:rgba(255,255,255,1);
 
 }
 /* Time Display
@@ -210,7 +218,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   position: absolute;
   right: 0;
   height: 1.0em; width: 30px;
-  top: 10px;
+  top: 9px;
   text-align:center;
   font-size: 1em; line-height: 1.0em; font-weight: normal; font-family: Helvetica, Arial, sans-serif;
   color:#fff;
@@ -234,7 +242,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 -------------------------------------------------------------------------------- */
 .vjs-secondary-controls { float: right; }
 
-.vjs-default-skin .vjs-fullscreen-control { width: 48px; height:32px; cursor: pointer !important; float: right; -webkit-border-radius: 5px; -moz-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px; margin-right:-1px; background:url('_img/video-texture-button.png');background-position:left; background-repeat:no-repeat;}
+.vjs-default-skin .vjs-fullscreen-control { width: 48px; height:32px; cursor: pointer !important; float: right; -webkit-border-radius: 0px 3px 3px 0px; -moz-border-radius: 0px 3px 3px 0px; border-radius: 0px 3px 3px 0px; margin-right:-1px; background:url('_img/video-texture-button.png');background-position:left; background-repeat:no-repeat;}
 .vjs-default-skin .vjs-fullscreen-control:hover{
   background:rgba(255,0,0,1);
 }
@@ -247,7 +255,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 ---------------------------------------------------------*/
 .vjs-default-skin .vjs-big-play-button {
   display: block; /* Start hidden */ z-index: 2;
-  position: absolute; bottom: 12px; left: 12px; width: 44px; height: 28px; text-align: center; vertical-align: center; cursor: pointer !important;
+  position: absolute; bottom: 10px; left: 10px; width: 48px; height: 32px; text-align: center; vertical-align: center; cursor: pointer !important;
   border: 2px solid #fff; opacity: 0.95;
   -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; outline:none;
 
@@ -266,9 +274,10 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 
 .vjs-default-skin div.vjs-big-play-button:hover {
-  background:rgba(255,0,0,0.8);
+  background:rgba(255,0,0,1);
   border:2px solid rgba(0,0,0,0); 
-cursor:pointer;
+  cursor:pointer;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }
 
 .vjs-default-skin div.vjs-big-play-button span {
