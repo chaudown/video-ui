@@ -144,7 +144,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-mute-control { width: 15px; cursor: pointer !important; float: right; }
-.vjs-default-skin .vjs-mute-control div { width: 12px; height: 9px; background: url('_img/video-icon-volume-3.png'); background-repeat:no-repeat; margin-top:11px; }
+.vjs-default-skin .vjs-mute-control div { width: 12px; height: 9px; background: url('_img/video-icon-volume-3.png'); background-repeat:no-repeat;margin-left:5px; margin-top:11px; }
 .vjs-default-skin .vjs-mute-control.vjs-vol-0 div { background: url('_img/video-icon-volume-0.png'); background-repeat:no-repeat; }
 .vjs-default-skin .vjs-mute-control.vjs-vol-1 div { background: url('_img/video-icon-volume-1.png'); background-repeat:no-repeat; }
 .vjs-default-skin .vjs-mute-control.vjs-vol-2 div { background: url('_img/video-icon-volume-2.png'); background-repeat:no-repeat; }
@@ -152,7 +152,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 .vjs-default-skin .vjs-volume-control { width: 72px; float: right; }
 .vjs-default-skin .vjs-volume-bar {
-  position: relative; width: 55px; height: 5px; margin-left:5px; margin-top:12px; cursor: pointer !important;
+  position: relative; width: 50px; height: 5px; margin-left:8px; margin-top:12px; cursor: pointer !important;
 
   
 
@@ -230,7 +230,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 
 .vjs-default-skin .vjs-current-time { left: 60px; }
 
-.vjs-default-skin .vjs-duration { left: 102px; ;}
+.vjs-default-skin .vjs-duration { left: 92px; color:rgba(255,255,255,0.5);}
 .vjs-default-skin .vjs-remaining-time { right: 0; display: none;}
 
 .vjs-time-divider { display:none; }
@@ -256,7 +256,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin .vjs-big-play-button {
   display: block; /* Start hidden */ z-index: 2;
   position: absolute; bottom: 10px; left: 10px; width: 48px; height: 32px; text-align: center; vertical-align: center; cursor: pointer !important;
-  border: 2px solid #fff; opacity: 0.95;
+  
   -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; outline:none;
 
 /*  background: #454545;
@@ -276,6 +276,16 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin div.vjs-big-play-button:hover {
   background:rgba(255,0,0,1);
   border:2px solid rgba(0,0,0,0); 
+  cursor:pointer;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+}
+.vjs-big-play-button-default{
+border: 2px solid #fff; opacity: 0.95;
+}
+
+.vjs-big-play-button-hover{
+   background:rgba(255,0,0,1);
+  border:2px solid red; 
   cursor:pointer;
   -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }

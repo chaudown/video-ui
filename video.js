@@ -19,6 +19,17 @@ You should have received a copy of the GNU Lesser General Public License
 along with Video.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+// function vjsBigPlayButtonOnMouseOver() {
+//   var element = document.getElementById('vjs-big-play-button');
+//   element.className = "vjs-big-play-button-hover";
+// }
+// function vjsBigPlayButtonOnMouseOut() {
+//   var element = document.getElementById('vjs-big-play-button');
+//   element.className = "";
+// }
+
+
+
 // Self-executing function to prevent global vars and help with minification
 ;(function(window, undefined){
   var document = window.document;// HTML5 Shiv. Must be in <head> to support older browsers.
@@ -1043,7 +1054,7 @@ _V_.DurationDisplay = _V_.Component.extend({
   },
 
   updateContent: function(){
-    if (this.player.duration()) { this.content.innerHTML = _V_.formatTime(this.player.duration()); }
+    if (this.player.duration()) { this.content.innerHTML ="/&nbsp;&nbsp;"+ _V_.formatTime(this.player.duration()); }
   }
 
 });
